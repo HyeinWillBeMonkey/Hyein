@@ -11,7 +11,9 @@ import Then
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
-    
+    let backImg = UIImageView().then {
+        $0.image = UIImage(named: "Tita-LoginVCBack")
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,7 +33,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        
+        view.addSubview(backImg)
     }
     
     // MARK: - Corner Radius
@@ -41,9 +43,10 @@ class LoginViewController: UIViewController {
     
     // MARK: - Location
     private func location(){
-        
+        backImg.snp.makeConstraints { make in
+            make.width.height.equalToSuperview()
+        }
     }
-    
 }
 
 //MARK: - Preview
