@@ -7,6 +7,6 @@ target 'Tita-Clone' do
 
   # Pods for Tita-Clone
 pod ‘Then’
-pod 'SnapKit', '~> 5.0.0’
+pod 'SnapKit'
 
 end
