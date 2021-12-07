@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     //MARK: - Properties
     
     //MARK: - Lifecycle
