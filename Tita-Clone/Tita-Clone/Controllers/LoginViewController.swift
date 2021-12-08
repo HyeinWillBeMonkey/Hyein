@@ -33,6 +33,16 @@ class LoginViewController: UIViewController {
         $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
     }
     
+    private let enterButton = UIButton().then {
+        $0.setTitle("입장하기", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.dynamicFont(fontSize: 18, currentFontName: "NotoSans-Bold")
+        $0.backgroundColor = .rgb(red: 255, green: 251, blue: 235)
+        $0.layer.cornerRadius = 10
+        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 2, y: 2, blur: 10, spread: 0)
+        $0.clipsToBounds = false
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +68,7 @@ class LoginViewController: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(idContainer)
         view.addSubview(pwContainer)
+        view.addSubview(enterButton)
     }
     
     //MARK: - idContainer Setting
@@ -107,6 +118,14 @@ class LoginViewController: UIViewController {
             make.top.equalTo(welcomeLabel.snp.bottom).offset(self.view.frame.height/5.64)
             make.width.equalToSuperview()
         }
+        
+        enterButton.snp.makeConstraints { make in
+            make.width.equalToSuperview().dividedBy(3.18)
+            make.height.equalToSuperview().dividedBy(20.3)
+            make.top.equalTo(pwContainer).offset(self.view.frame.height/6.2)
+            make.centerX.equalToSuperview()
+        }
+        
     }
 }
 
