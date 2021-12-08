@@ -22,10 +22,9 @@ class TextFieldView: UIView, UITextFieldDelegate {
     }
     
     lazy var button = UIButton().then {
-        $0.setTitle("아이디를 잊으셨나요?", for: .normal)
+        $0.setTitle("", for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
-        $0.setUnderline()
     }
     
     func setting(height: CGFloat, width: CGFloat) {

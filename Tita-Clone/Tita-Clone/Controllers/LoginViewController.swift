@@ -26,11 +26,15 @@ class LoginViewController: UIViewController {
         $0.dynamicFont(fontSize: 27, currentFontName: "NotoSans-Bold")
     }
     
-    private let idContainer = TextFieldView()
+    private let idContainer = TextFieldView().then {
+        $0.button.setTitle("아이디를 잊으셨나요?", for: .normal)
+        $0.button.setUnderline()
+    }
     
     private let pwContainer = TextFieldView().then {
         $0.textField.placeholder = "비밀번호"
         $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
+        $0.button.setUnderline()
     }
     
     private let enterButton = UIButton().then {
