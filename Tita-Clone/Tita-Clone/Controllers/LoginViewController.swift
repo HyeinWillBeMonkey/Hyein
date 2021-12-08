@@ -43,6 +43,12 @@ class LoginViewController: UIViewController {
         $0.clipsToBounds = false
     }
     
+    private let signUpButton = UIButton().then {
+        $0.setTitle("혹시 아직 회원이 아니신가요?", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
+        $0.setUnderline()
+    }
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +75,7 @@ class LoginViewController: UIViewController {
         view.addSubview(idContainer)
         view.addSubview(pwContainer)
         view.addSubview(enterButton)
+        view.addSubview(signUpButton)
     }
     
     //MARK: - idContainer Setting
@@ -123,6 +130,11 @@ class LoginViewController: UIViewController {
             make.width.equalToSuperview().dividedBy(3.18)
             make.height.equalToSuperview().dividedBy(20.3)
             make.top.equalTo(pwContainer).offset(self.view.frame.height/6.2)
+            make.centerX.equalToSuperview()
+        }
+        
+        signUpButton.snp.makeConstraints { make in
+            make.top.equalTo(enterButton.snp.bottom).offset(self.view.frame.height/31.23)
             make.centerX.equalToSuperview()
         }
         
