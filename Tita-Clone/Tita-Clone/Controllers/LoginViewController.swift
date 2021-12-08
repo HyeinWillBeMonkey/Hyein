@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private let idContainer = TextFieldView().then {
         $0.button.setTitle("아이디를 잊으셨나요?", for: .normal)
         $0.button.setUnderline()
+        $0.button.addTarget(self, action: #selector(tapForgetId), for: .touchUpInside)
     }
     
     private let pwContainer = TextFieldView().then {
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         $0.textField.isSecureTextEntry = true
         $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
         $0.button.setUnderline()
+        $0.button.addTarget(self, action: #selector(tapForgetPw), for: .touchUpInside)
     }
     
     private let enterButton = UIButton().then {
@@ -46,6 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         $0.layer.cornerRadius = 10
         $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 2, y: 2, blur: 10, spread: 0)
         $0.clipsToBounds = false
+        $0.addTarget(self, action: #selector(tapEnter), for: .touchUpInside)
     }
     
     private let signUpButton = UIButton().then {
@@ -53,6 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         $0.setTitleColor(.black, for: .normal)
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
         $0.setUnderline()
+        $0.addTarget(self, action: #selector(tapSignUp), for: .touchUpInside)
     }
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -65,11 +69,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
          self.view.endEditing(true)
    }
 
-    //MARK: - Selectors
+    //MARK: - Keybord Setting
     func keyboardSetting() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //MARK: - Selectors
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -(self.view.frame.height/5.5)
+        }
+    
+    @objc
+    func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc
+    func tapForgetId() {
+        print("id 찾기")
+    }
+
+    @objc
+    func tapForgetPw() {
+        print("pw 찾기")
+    }
+    
+    @objc
+    func tapEnter() {
+        print("입장")
+    }
+    
+    @objc
+    func tapSignUp() {
+        print("회원가입")
     }
     
     //MARK: - Helpers
@@ -155,17 +190,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
    
-    //MARK: - Action
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -(self.view.frame.height/5.5) // Move view 150 points upward
-        }
-    
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
-    self.view.frame.origin.y = 0 // Move view to original position
-    }
-
 }
 
 //MARK: - Preview
