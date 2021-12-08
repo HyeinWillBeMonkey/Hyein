@@ -9,9 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-class TextFieldView: UIView, UITextFieldDelegate {
+class TextFieldView: UIView, UITextFieldDelegate{
     lazy var textField = UITextField().then {
         $0.backgroundColor = UIColor.white
+        $0.textColor = .black
         $0.placeholder = "아이디"
         $0.setPlaceholderColor(.rgb(red: 175, green: 175, blue: 175))
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
@@ -32,7 +33,7 @@ class TextFieldView: UIView, UITextFieldDelegate {
         
         textField.snp.makeConstraints { make in
             make.width.equalToSuperview().dividedBy(1.43)
-            make.height.equalToSuperview().offset(height/19.33)
+            make.height.equalToSuperview().dividedBy(19.33)
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
         }

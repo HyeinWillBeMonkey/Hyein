@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Properties
     private let backImg = UIImageView().then {
         $0.image = UIImage(named: "Tita-LoginVCBack")
@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
     
     private let pwContainer = TextFieldView().then {
         $0.textField.placeholder = "비밀번호"
+        $0.textField.isSecureTextEntry = true
         $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
         $0.button.setUnderline()
     }
