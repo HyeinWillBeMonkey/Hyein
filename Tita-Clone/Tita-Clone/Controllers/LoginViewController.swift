@@ -11,21 +11,27 @@ import Then
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
-    let backImg = UIImageView().then {
+    private let backImg = UIImageView().then {
         $0.image = UIImage(named: "Tita-LoginVCBack")
     }
     
-    let logoImg = UIImageView().then {
+    private let logoImg = UIImageView().then {
         $0.image = UIImage(named: "Tita-Logo")
     }
     
-    let welcomeLabel = UILabel().then {
+    private let welcomeLabel = UILabel().then {
         $0.numberOfLines = 2
         $0.textAlignment = .left
         $0.text = "어서오세요,\nTimeTable입니다!"
         $0.dynamicFont(fontSize: 27, currentFontName: "NotoSans-Bold")
     }
     
+    private let idContainer = TextFieldView()
+    
+    private let pwContainer = TextFieldView().then {
+        $0.textField.placeholder = "비밀번호"
+        $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,6 +47,8 @@ class LoginViewController: UIViewController {
         addView()
         cornerRadius()
         location()
+        idContainerSetting()
+        pwContainerSetting()
     }
     
     // MARK: - Add View
@@ -48,6 +56,22 @@ class LoginViewController: UIViewController {
         view.addSubview(backImg)
         view.addSubview(logoImg)
         view.addSubview(welcomeLabel)
+        view.addSubview(idContainer)
+        view.addSubview(pwContainer)
+    }
+    
+    //MARK: - idContainer Setting
+    private func idContainerSetting(){
+    idContainer.addSubview(idContainer.textField)
+    idContainer.addSubview(idContainer.button)
+    idContainer.setting(height: self.view.frame.height, width: self.view.frame.width)
+    }
+    
+    //MARK: - pwContainer Setting
+    private func pwContainerSetting(){
+        pwContainer.addSubview(pwContainer.textField)
+        pwContainer.addSubview(pwContainer.button)
+        pwContainer.setting(height: self.view.frame.height, width: self.view.frame.width)
     }
     
     // MARK: - Corner Radius
@@ -71,6 +95,17 @@ class LoginViewController: UIViewController {
         welcomeLabel.snp.makeConstraints { make in
             make.top.equalTo(logoImg.snp.bottom).offset(self.view.frame.height/32.48)
             make.left.equalTo(logoImg)
+        }
+        
+        idContainer.snp.makeConstraints { make in
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(self.view.frame.height/15.92)
+            make.width.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+        
+        pwContainer.snp.makeConstraints { make in
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(self.view.frame.height/5.64)
+            make.width.equalToSuperview()
         }
     }
 }

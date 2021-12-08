@@ -18,6 +18,7 @@
 		C06F32AE275F54A300F4A97E /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C06F32AA275F54A300F4A97E /* NotoSans-Italic.ttf */; };
 		C06F32B0275F578C00F4A97E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F32AF275F578C00F4A97E /* LoginViewController.swift */; };
 		C06F32B7275F58DA00F4A97E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F32B6275F58DA00F4A97E /* Extension.swift */; };
+		C0FD07312760354300F59570 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD07302760354300F59570 /* TextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C06F32AA275F54A300F4A97E /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
 		C06F32AF275F578C00F4A97E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C06F32B6275F58DA00F4A97E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C0FD07302760354300F59570 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		EC0F295B1407E8CB8CF9F181 /* Pods_Tita_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tita_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 		C06F32B2275F582400F4A97E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0FD07302760354300F59570 /* TextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				C06F32B0275F578C00F4A97E /* LoginViewController.swift in Sources */,
 				C06F3293275F52AF00F4A97E /* AppDelegate.swift in Sources */,
 				C06F3295275F52AF00F4A97E /* SceneDelegate.swift in Sources */,
+				C0FD07312760354300F59570 /* TextFieldView.swift in Sources */,
 				C06F32B7275F58DA00F4A97E /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

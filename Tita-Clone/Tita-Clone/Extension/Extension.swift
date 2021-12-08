@@ -100,6 +100,16 @@ extension UITextField {
       break
     }
   }
+    // MARK: - placeholderColor
+    func setPlaceholderColor(_ placeholderColor: UIColor) {
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [
+                .foregroundColor: placeholderColor,
+                .font: font
+            ].compactMapValues { $0 }
+        )
+    }
 }
 
 //MARK: - UIView roundCornerRadius extension
@@ -147,6 +157,19 @@ extension UIButton {
       break
     }
   }
+}
+
+// MARK: - Button set UnderLine
+extension UIButton {
+    func setUnderline() {
+        guard let title = title(for: .normal) else { return }
+        let attributedString = NSMutableAttributedString(string: title)
+        attributedString.addAttribute(.underlineStyle,
+                                      value: NSUnderlineStyle.single.rawValue,
+                                      range: NSRange(location: 0, length: title.count)
+        )
+        setAttributedTitle(attributedString, for: .normal)
+    }
 }
 
 //MARK: - UITextView dynamic font extension
@@ -328,4 +351,20 @@ extension UITextField {
       }
     }
 }
+
+// MARK: - textField Padding
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){ //왼쪽에 여백 주기
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+ 
+    func setRightPaddingPoints(_ amount:CGFloat) { //오른쪽에 여백 주기
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+}
+
 
