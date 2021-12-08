@@ -20,6 +20,7 @@ class TextFieldView: UIView, UITextFieldDelegate{
         $0.layer.cornerRadius = 10
         $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 2, y: 2, blur: 10, spread: 0)
         $0.clipsToBounds = false
+        $0.keyboardType = .asciiCapable
     }
     
     lazy var button = UIButton().then {
