@@ -70,40 +70,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    }
 
     //MARK: - Keybord Setting
-    func keyboardSetting() {
+    private func keyboardSetting() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: - Selectors
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
+    @objc private func keyboardWillShow(_ sender: Notification) {
         self.view.frame.origin.y = -(self.view.frame.height/5.5)
-        }
+    }
     
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
+    @objc private func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0
     }
     
-    @objc
-    func tapForgetId() {
+    @objc private func tapForgetId() {
         print("id 찾기")
     }
 
-    @objc
-    func tapForgetPw() {
+    @objc private func tapForgetPw() {
         print("pw 찾기")
     }
     
-    @objc
-    func tapEnter() {
+    @objc private func tapEnter() {
         print("입장")
     }
     
-    @objc
-    func tapSignUp() {
+    @objc private func tapSignUp() {
         print("회원가입")
     }
     
