@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        addNotificationCenter()
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
