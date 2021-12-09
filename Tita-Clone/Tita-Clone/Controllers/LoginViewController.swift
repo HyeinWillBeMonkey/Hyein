@@ -144,7 +144,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Location
     private func location(){
         backImg.snp.makeConstraints { make in
-            make.width.height.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         
         logoImg.snp.makeConstraints { make in
