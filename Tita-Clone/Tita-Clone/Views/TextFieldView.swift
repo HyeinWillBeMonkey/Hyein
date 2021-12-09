@@ -25,7 +25,7 @@ class TextFieldView: UIView, UITextFieldDelegate{
     }
     
     lazy var button = UIButton().then {
-        $0.setTitle("", for: .normal)
+        
         $0.setTitleColor(.black, for: .normal)
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
     }
