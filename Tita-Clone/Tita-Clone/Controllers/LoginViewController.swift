@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     //MARK: - Properties
     private let backImg = UIImageView().then {
         $0.image = UIImage(named: "Tita-LoginVCBack")
