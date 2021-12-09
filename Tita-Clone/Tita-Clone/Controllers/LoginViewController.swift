@@ -54,7 +54,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private let signUpButton = UIButton().then {
         $0.setTitle("혹시 아직 회원이 아니신가요?", for: .normal)
         $0.setTitleColor(.black, for: .normal)
-        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
+        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
         $0.setUnderline()
         $0.addTarget(self, action: #selector(tapSignUp), for: .touchUpInside)
     }
