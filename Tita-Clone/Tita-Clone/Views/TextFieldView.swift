@@ -18,7 +18,7 @@ class TextFieldView: UIView, UITextFieldDelegate{
         $0.setPlaceholderColor(.rgb(red: 175, green: 175, blue: 175))
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
         $0.delegate = self
-        $0.layer.cornerRadius = 10
+        $0.layer.cornerRadius = viewBounds.width/37.5
         $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 2, y: 2, blur: 10, spread: 0)
         $0.clipsToBounds = false
         $0.keyboardType = .asciiCapable
