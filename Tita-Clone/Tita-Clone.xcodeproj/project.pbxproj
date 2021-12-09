@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		811D7BE5D84C643EA7A4D13D /* Pods_Tita_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0F295B1407E8CB8CF9F181 /* Pods_Tita_Clone.framework */; };
+		C03F73EE2762CAD4006E0C00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F73ED2762CAD4006E0C00 /* MainViewController.swift */; };
 		C06F3293275F52AF00F4A97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F3292275F52AF00F4A97E /* AppDelegate.swift */; };
 		C06F3295275F52AF00F4A97E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F3294275F52AF00F4A97E /* SceneDelegate.swift */; };
 		C06F329C275F52B000F4A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C06F329B275F52B000F4A97E /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		696F8271A577B07EC4D0859C /* Pods-Tita-Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tita-Clone.debug.xcconfig"; path = "Target Support Files/Pods-Tita-Clone/Pods-Tita-Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		8598CF4A613B8866DD61B18E /* Pods-Tita-Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tita-Clone.release.xcconfig"; path = "Target Support Files/Pods-Tita-Clone/Pods-Tita-Clone.release.xcconfig"; sourceTree = "<group>"; };
+		C03F73ED2762CAD4006E0C00 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C06F328F275F52AF00F4A97E /* Tita-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tita-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06F3292275F52AF00F4A97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C06F3294275F52AF00F4A97E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C06F32AF275F578C00F4A97E /* LoginViewController.swift */,
+				C03F73ED2762CAD4006E0C00 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C06F32B0275F578C00F4A97E /* LoginViewController.swift in Sources */,
 				C06F3293275F52AF00F4A97E /* AppDelegate.swift in Sources */,
 				C06F3295275F52AF00F4A97E /* SceneDelegate.swift in Sources */,
+				C03F73EE2762CAD4006E0C00 /* MainViewController.swift in Sources */,
 				C0FD07312760354300F59570 /* TextFieldView.swift in Sources */,
 				C06F32B7275F58DA00F4A97E /* Extension.swift in Sources */,
 			);
