@@ -16,7 +16,7 @@ class TextFieldView: UIView, UITextFieldDelegate{
         $0.textColor = .black
         $0.placeholder = "아이디"
         $0.setPlaceholderColor(.rgb(red: 175, green: 175, blue: 175))
-        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
+        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
         $0.delegate = self
         $0.layer.cornerRadius = viewBounds.width/37.5
         $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 2, y: 2, blur: 10, spread: 0)
@@ -27,7 +27,7 @@ class TextFieldView: UIView, UITextFieldDelegate{
     lazy var button = UIButton().then {
         
         $0.setTitleColor(.black, for: .normal)
-        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans-Regular")
+        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
     }
     
     func setting(height: CGFloat, width: CGFloat) {
