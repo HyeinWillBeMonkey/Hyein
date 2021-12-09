@@ -10,6 +10,7 @@ import SnapKit
 import Then
 
 class TextFieldView: UIView, UITextFieldDelegate{
+    private let viewBounds = UIScreen.main.bounds
     lazy var textField = UITextField().then {
         $0.backgroundColor = UIColor.white
         $0.textColor = .black
