@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let welcomeLabel = UILabel().then {
         $0.numberOfLines = 2
-        $0.textAlignment = .left
+        
         $0.text = "어서오세요,\nTimeTable입니다!"
         $0.dynamicFont(fontSize: 27, currentFontName: "NotoSans-Bold")
     }
