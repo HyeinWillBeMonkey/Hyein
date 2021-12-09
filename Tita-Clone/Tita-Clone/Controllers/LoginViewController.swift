@@ -119,13 +119,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Add View
     private func addView(){
-        view.addSubview(backImg)
-        view.addSubview(logoImg)
-        view.addSubview(welcomeLabel)
-        view.addSubview(idContainer)
-        view.addSubview(pwContainer)
-        view.addSubview(enterButton)
-        view.addSubview(signUpButton)
+        [backImg, logoImg, welcomeLabel, idContainer, pwContainer, enterButton, signUpButton].forEach { view.addSubview($0) }
     }
     
     //MARK: - idContainer Setting
