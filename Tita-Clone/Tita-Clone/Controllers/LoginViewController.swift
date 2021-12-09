@@ -21,21 +21,19 @@ class LoginViewController: UIViewController {
     
     private let welcomeLabel = UILabel().then {
         $0.numberOfLines = 2
-        
         $0.text = "어서오세요,\nTimeTable입니다!"
         $0.dynamicFont(fontSize: 27, currentFontName: "NotoSans-Bold")
     }
     
     private let idContainer = TextFieldView().then {
-        $0.button.setTitle("아이디를 잊으셨나요?", for: .normal)
+        $0.dataSetting(placeholderText: "아이디", buttonTitle: "아이디를 잊으셨나요?")
         $0.button.setUnderline()
         $0.button.addTarget(self, action: #selector(tapForgetId), for: .touchUpInside)
     }
     
     private let pwContainer = TextFieldView().then {
-        $0.textField.placeholder = "비밀번호"
+        $0.dataSetting(placeholderText: "비밀번호", buttonTitle: "비밀번호를 잊으셨나요?")
         $0.textField.isSecureTextEntry = true
-        $0.button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
         $0.button.setUnderline()
         $0.button.addTarget(self, action: #selector(tapForgetPw), for: .touchUpInside)
     }
@@ -62,18 +60,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        keyboardSetting()
+        addNotificationCenter()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
-
-    //MARK: - Keybord Setting
-    private func keyboardSetting() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
     
     //MARK: - Selectors
     @objc private func keyboardWillShow(_ sender: Notification) {
@@ -104,34 +96,13 @@ class LoginViewController: UIViewController {
     private func configureUI(){
         view.backgroundColor = .white
         addView()
-        cornerRadius()
         location()
-        idContainerSetting()
-        pwContainerSetting()
+        addNotificationCenter()
     }
     
     // MARK: - Add View
     private func addView(){
         [backImg, logoImg, welcomeLabel, idContainer, pwContainer, enterButton, signUpButton].forEach { view.addSubview($0) }
-    }
-    
-    //MARK: - idContainer Setting
-    private func idContainerSetting(){
-    idContainer.addSubview(idContainer.textField)
-    idContainer.addSubview(idContainer.button)
-    idContainer.setting(height: self.view.frame.height, width: self.view.frame.width)
-    }
-    
-    //MARK: - pwContainer Setting
-    private func pwContainerSetting(){
-        pwContainer.addSubview(pwContainer.textField)
-        pwContainer.addSubview(pwContainer.button)
-        pwContainer.setting(height: self.view.frame.height, width: self.view.frame.width)
-    }
-    
-    // MARK: - Corner Radius
-    private func cornerRadius(){
-        
     }
     
     // MARK: - Location
@@ -155,12 +126,14 @@ class LoginViewController: UIViewController {
         idContainer.snp.makeConstraints { make in
             make.top.equalTo(welcomeLabel.snp.bottom).offset(self.view.frame.height/15.92)
             make.width.equalToSuperview()
+            make.height.equalToSuperview()
             make.left.equalToSuperview()
         }
         
         pwContainer.snp.makeConstraints { make in
             make.top.equalTo(welcomeLabel.snp.bottom).offset(self.view.frame.height/5.64)
             make.width.equalToSuperview()
+            make.height.equalToSuperview()
         }
         
         enterButton.snp.makeConstraints { make in
@@ -176,7 +149,12 @@ class LoginViewController: UIViewController {
         }
         
     }
-   
+    
+//MARK: - Add NotificationCenter
+    private func addNotificationCenter(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }
 
 //MARK: - Preview
