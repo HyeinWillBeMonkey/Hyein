@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     }
     
     private let searchButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        $0.tintColor = .black
+        $0.setImage(UIImage(named: "Tita-Search"), for: .normal)
     }
     
     //MARK: - Lifecycle
@@ -67,11 +66,13 @@ class ViewController: UIViewController {
         }
         
         searchButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().dividedBy(20.05)
-            make.height.equalToSuperview().dividedBy(43.42)
+            make.width.equalToSuperview().dividedBy(11.36)
+            make.height.equalToSuperview().dividedBy(21.71)
             make.centerY.equalTo(headLabel)
-            make.left.equalTo(headLabel.snp.right).offset(self.view.frame.width/16.16)
+            make.left.equalTo(headLabel.snp.right).offset(self.view.frame.width/37.5)
         }
+        
+        
     }
     
 }
