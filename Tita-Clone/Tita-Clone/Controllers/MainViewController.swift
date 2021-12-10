@@ -25,6 +25,11 @@ class ViewController: UIViewController {
         $0.setImage(UIImage(named: "Tita-Search"), for: .normal)
     }
     
+    private let myPageButton = UIButton().then {
+        $0.setImage(UIImage(named: "Tita-Mypage"), for: .normal)
+    }
+    
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +48,7 @@ class ViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        [headLabel, headView, searchButton].forEach {view.addSubview($0)}
+        [headLabel, headView, searchButton, myPageButton].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -72,6 +77,12 @@ class ViewController: UIViewController {
             make.left.equalTo(headLabel.snp.right).offset(self.view.frame.width/37.5)
         }
         
+        myPageButton.snp.makeConstraints { make in
+            make.width.equalToSuperview().dividedBy(25)
+            make.height.equalToSuperview().dividedBy(38.67)
+            make.centerY.equalTo(searchButton)
+            make.left.equalTo(searchButton.snp.right).offset(self.view.frame.width/26.79)
+        }
         
     }
     
