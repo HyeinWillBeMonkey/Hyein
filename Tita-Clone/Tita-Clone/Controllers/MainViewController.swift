@@ -11,6 +11,10 @@ import Then
 
 class ViewController: UIViewController {
     //MARK: - Properties
+    private let headLabel = UILabel().then {
+        $0.text = "광주소프트웨어마이스터고"
+        $0.dynamicFont(fontSize: 22, currentFontName: "NotoSans-Bold")
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,7 +34,7 @@ class ViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        
+        [headLabel].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -40,7 +44,10 @@ class ViewController: UIViewController {
     
     // MARK: - Location
     private func location(){
-        
+        headLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(self.view.frame.height/14.25)
+            make.left.equalToSuperview().offset(self.view.frame.width/13.89)
+        }
     }
     
 }
