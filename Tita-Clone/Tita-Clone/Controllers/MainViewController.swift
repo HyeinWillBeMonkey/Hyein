@@ -16,6 +16,11 @@ class ViewController: UIViewController {
         $0.dynamicFont(fontSize: 22, currentFontName: "NotoSans-Bold")
     }
     
+    private let headView = UIView().then {
+        $0.backgroundColor = .rgba(red: 167, green: 203, blue: 234, alpha: 1)
+
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,7 @@ class ViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        [headLabel].forEach {view.addSubview($0)}
+        [headLabel, headView].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -47,6 +52,13 @@ class ViewController: UIViewController {
         headLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(self.view.frame.height/14.25)
             make.left.equalToSuperview().offset(self.view.frame.width/13.89)
+        }
+        
+        headView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(203)
+            make.top.equalTo(headLabel.snp.bottom).offset(self.view.frame.height/55.62)
+            make.centerX.equalToSuperview()
         }
     }
     
