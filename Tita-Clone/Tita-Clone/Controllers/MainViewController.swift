@@ -21,6 +21,11 @@ class ViewController: UIViewController {
 
     }
     
+    private let searchButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        $0.tintColor = .black
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,7 @@ class ViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        [headLabel, headView].forEach {view.addSubview($0)}
+        [headLabel, headView, searchButton].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -59,6 +64,13 @@ class ViewController: UIViewController {
             make.height.equalToSuperview().dividedBy(203)
             make.top.equalTo(headLabel.snp.bottom).offset(self.view.frame.height/55.62)
             make.centerX.equalToSuperview()
+        }
+        
+        searchButton.snp.makeConstraints { make in
+            make.width.equalToSuperview().dividedBy(20.05)
+            make.height.equalToSuperview().dividedBy(43.42)
+            make.centerY.equalTo(headLabel)
+            make.left.equalTo(headLabel.snp.right).offset(self.view.frame.width/16.16)
         }
     }
     
