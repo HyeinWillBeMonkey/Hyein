@@ -76,16 +76,18 @@ class LoginViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
     
-    @objc private func tapForgetId() {
+    @objc private func tapForgetId(_ sender: UIButton) {
         print("id 찾기")
     }
 
-    @objc private func tapForgetPw() {
+    @objc private func tapForgetPw(_ sender: UIButton) {
         print("pw 찾기")
     }
     
-    @objc private func tapEnter() {
+    @objc private func tapEnter(_ sender: UIButton) {
         print("입장")
+        let nextVC = MainViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func tapSignUp() {

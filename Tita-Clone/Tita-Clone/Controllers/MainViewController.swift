@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     //MARK: - Properties
     private let headLabel = UILabel().then {
         $0.text = "광주소프트웨어마이스터고"
@@ -29,7 +29,8 @@ class ViewController: UIViewController {
         $0.setImage(UIImage(named: "Tita-Mypage"), for: .normal)
     }
     
-    
+    private lazy var tabBar = MainTabBarView()
+     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
     
     // MARK: - Add View
     private func addView(){
-        [headLabel, headView, searchButton, myPageButton].forEach {view.addSubview($0)}
+        [headLabel, headView, searchButton, myPageButton, tabBar].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -84,6 +85,12 @@ class ViewController: UIViewController {
             make.left.equalTo(searchButton.snp.right).offset(self.view.frame.width/26.79)
         }
         
+        tabBar.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+            make.top.equalToSuperview().offset(self.view.frame.height/1.08)
+        }
+        
     }
     
 }
@@ -91,21 +98,21 @@ class ViewController: UIViewController {
 //MARK: - Preview
 #if DEBUG
 import SwiftUI
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
+struct MainViewControllerRepresentable: UIViewControllerRepresentable {
     
 func updateUIViewController(_ uiView: UIViewController,context: Context) {
         // leave this empty
 }
     @available(iOS 13.0.0, *)
     func makeUIViewController(context: Context) -> UIViewController{
-        ViewController()
+        MainViewController()
     }
 }
 @available(iOS 13.0, *)
 struct ViewControllerRepresentable_PreviewProvider: PreviewProvider {
     static var previews: some View {
         Group {
-            ViewControllerRepresentable()
+            MainViewControllerRepresentable()
                 .ignoresSafeArea()
                 .previewDisplayName(/*@START_MENU_TOKEN@*/"Preview"/*@END_MENU_TOKEN@*/)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
