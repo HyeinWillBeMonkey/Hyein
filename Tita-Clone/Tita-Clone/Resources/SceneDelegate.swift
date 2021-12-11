@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.navigationBar.isHidden = true
-        window?.rootViewController = navigationController
+        window?.rootViewController = TabBarViewController()
         window?.makeKeyAndVisible()
         
         for fontFamily in UIFont.familyNames {
