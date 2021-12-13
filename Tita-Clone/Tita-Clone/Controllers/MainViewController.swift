@@ -50,18 +50,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //MARK: - Selectors
-    @objc func tapSearchButton(_ sender: UIButton){
+    @objc private func tapSearchButton(_ sender: UIButton){
         print("검색")
     }
     
-    @objc func tapMypageButton(_ sender: UIButton) {
+    @objc private func tapMypageButton(_ sender: UIButton) {
         print("my page")
     }
-    @objc func tapMainMore(_sender: UIButton) {
+    @objc private func tapMainMore(_sender: UIButton) {
         print("공지글 더보기")
     }
     
-    @objc func tapBestMore(_sender: UIButton) {
+    @objc private func tapBestMore(_sender: UIButton) {
         print("best 더보기")
     }
     
