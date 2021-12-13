@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
     
     @objc private func tapEnter(_ sender: UIButton) {
         print("입장")
-        let nextVC = MainViewController()
+        let nextVC = TabBarViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
