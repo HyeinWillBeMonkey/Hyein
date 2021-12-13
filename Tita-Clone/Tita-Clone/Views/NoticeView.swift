@@ -11,7 +11,7 @@ import Then
 
 class NoticeView: UIView {
     //MARK: - property
-    lazy var viewBounds = UIScreen.main.bounds
+    private let viewBounds = UIScreen.main.bounds
     
     private let backView = UIView().then {
         $0.backgroundColor = .white

@@ -17,9 +17,7 @@ class TabBarViewController: UITabBarController {
         }
 
        private func setUpTabBar() {
-           
-           tabBar.barTintColor = .black
-           tabBar.tintColor = .black
+           self.tabBar.tintColor = .black
         
            let mainViewController = UINavigationController(rootViewController: MainViewController())
            mainViewController.tabBarItem.image = UIImage(named: "Tita-homeBtn")

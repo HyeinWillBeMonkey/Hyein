@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //MARK: - Properties
     private let collectionViewImgList = ["Tita-breakfast", "Tita-lunch", "Tita-dinner"]
     private let collectionViewTitleList = ["오늘의 아침", "오늘의 점심", "오늘의 저녁"]
@@ -89,11 +89,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //MARK: - collectionViewSetting
-    func collectionViewSetting() {
+    private func collectionViewSetting() {
         cafeteriaCollectionView.register(CafeteriaCollectionViewCell.self, forCellWithReuseIdentifier:CafeteriaCollectionViewCell.identifier)
         cafeteriaCollectionView.dataSource = self
         cafeteriaCollectionView.delegate = self
-        cafeteriaCollectionView.contentInset = UIEdgeInsets.init(top: 0, left: self.view.frame.width/1.19, bottom: 0, right: 0)
+        cafeteriaCollectionView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 20)
         }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -104,6 +104,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = cafeteriaCollectionView.dequeueReusableCell(withReuseIdentifier: "CafeteriaCollectionViewCell", for: indexPath) as! CafeteriaCollectionViewCell
         cell.dataSetting(Image: collectionViewImgList[indexPath.row], titleText: collectionViewTitleList[indexPath.row], menuText: collectionViewMenuList[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.width/1.19, height: view.frame.height)
     }
     
 
@@ -151,9 +156,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         cafeteriaCollectionView.snp.makeConstraints { make in
-            make.width.equalTo((self.view.frame.width/1.13)*3)
-            make.height.equalTo(self.view.frame.height/4.34)
-            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(1.08)
+            make.height.equalToSuperview().dividedBy(4.34)
+            make.right.equalToSuperview()
             make.top.equalToSuperview().offset(self.view.frame.height/5.56)
         }
     }
