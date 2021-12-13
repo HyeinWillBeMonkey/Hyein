@@ -76,16 +76,18 @@ class LoginViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
     
-    @objc private func tapForgetId() {
+    @objc private func tapForgetId(_ sender: UIButton) {
         print("id 찾기")
     }
 
-    @objc private func tapForgetPw() {
+    @objc private func tapForgetPw(_ sender: UIButton) {
         print("pw 찾기")
     }
     
-    @objc private func tapEnter() {
+    @objc private func tapEnter(_ sender: UIButton) {
         print("입장")
+        let nextVC = TabBarViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func tapSignUp() {
@@ -157,29 +159,3 @@ class LoginViewController: UIViewController {
     }
 }
 
-//MARK: - Preview
-#if DEBUG
-import SwiftUI
-struct LoginViewControllerRepresentable: UIViewControllerRepresentable {
-    
-func updateUIViewController(_ uiView: UIViewController,context: Context) {
-        // leave this empty
-}
-    @available(iOS 13.0.0, *)
-    func makeUIViewController(context: Context) -> UIViewController{
-        LoginViewController()
-    }
-}
-@available(iOS 13.0, *)
-struct LoginViewControllerRepresentable_PreviewProvider: PreviewProvider {
-    static var previews: some View {
-        Group {
-            LoginViewControllerRepresentable()
-                .ignoresSafeArea()
-                .previewDisplayName(/*@START_MENU_TOKEN@*/"Preview"/*@END_MENU_TOKEN@*/)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
-        }
-        
-    }
-} #endif
- 
