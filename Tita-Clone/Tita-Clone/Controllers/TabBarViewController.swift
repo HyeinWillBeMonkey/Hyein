@@ -40,6 +40,8 @@ class TabBarViewController: UITabBarController {
            mypageViewController.tabBarItem.imageInsets = .init(top: 0, left: 0, bottom: -30, right: 0)
            
            viewControllers = [mainViewController, noticeViewController, alarmViewController, mypageViewController]
+           self.tabBar.isTranslucent = false
+           self.tabBar.backgroundColor = .white
     }
     
 }
