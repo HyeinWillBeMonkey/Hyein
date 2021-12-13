@@ -69,7 +69,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func configureUI(){
         view.backgroundColor = .white
         addView()
-        cornerRadius()
+       
         location()
         collectionViewSetting()
     }
