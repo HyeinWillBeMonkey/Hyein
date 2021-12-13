@@ -13,15 +13,15 @@ class CafeteriaCollectionViewCell: UICollectionViewCell {
     private let viewBounds = UIScreen.main.bounds
     
     
-    lazy var timeImg = UIImageView().then {
+    let timeImg = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
     
-    lazy var title = UILabel().then {
+    let title = UILabel().then {
         $0.dynamicFont(fontSize: 18, currentFontName: "NotoSans-Bold")
     }
     
-    lazy var menu = UILabel().then {
+    let menu = UILabel().then {
         $0.numberOfLines = 0
         $0.dynamicFont(fontSize: 14, currentFontName: "NotoSans")
     }

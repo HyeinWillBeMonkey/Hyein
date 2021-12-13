@@ -17,7 +17,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                           "순두부찌개\n마른새우조림\n느타리버섯호박볶음\n찜닭덮밥\n깍두기\n아이스크림",
                                           "백미밥\n바지락살미역국\n영양갈비찜\n깻잎순나물\n두부쑥갓구이/양념장\n깍두기"]
     
-
     private let topView = MainTopView().then {
         $0.searchButton.addTarget(self, action: #selector(tapSearchButton(_:)), for: .touchUpInside)
         $0.myPageButton.addTarget(self, action: #selector(tapMypageButton(_:)), for: .touchUpInside)
@@ -42,7 +41,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         $0.showsHorizontalScrollIndicator = false
     }
     
-     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +77,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         [topView, cafeteriaCollectionView, mainNoticeView, bestNoticeView].forEach {view.addSubview($0)}
     }
     
-   
     //MARK: - collectionViewSetting
     private func collectionViewSetting() {
         cafeteriaCollectionView.register(CafeteriaCollectionViewCell.self, forCellWithReuseIdentifier:CafeteriaCollectionViewCell.identifier)
@@ -102,8 +99,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return CGSize(width: view.frame.width/1.19, height: view.frame.height/4.34)
     }
-    
-
     
     // MARK: - Location
     private func location(){
@@ -136,6 +131,4 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             make.centerX.equalToSuperview()
         }
     }
-    
 }
-

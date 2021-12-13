@@ -14,21 +14,21 @@ class MainNoticeView: UIView {
     private let viewBounds = UIScreen.main.bounds
 
     
-    lazy var noticeContent = UILabel().then {
+    let noticeContent = UILabel().then {
         $0.dynamicFont(fontSize: 18, currentFontName: "NotoSans-Bold")
     }
     
-    lazy var underscore = UIView()
+    let underscore = UIView()
     
-    lazy var writer = UILabel().then {
+    let writer = UILabel().then {
         $0.dynamicFont(fontSize: 14, currentFontName: "NotoSans-Bold")
     }
     
-    lazy var title = UILabel().then {
+    let title = UILabel().then {
         $0.dynamicFont(fontSize: 14, currentFontName: "NotoSans")
     }
     
-    lazy var text = UILabel().then {
+    let text = UILabel().then {
         $0.dynamicFont(fontSize: 10, currentFontName: "NotoSans")
         $0.numberOfLines = 0
     }

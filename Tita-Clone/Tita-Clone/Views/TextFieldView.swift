@@ -23,7 +23,7 @@ class TextFieldView: UIView {
         $0.setLeftPaddingPoints(viewBounds.width/18.79)
     }
     
-    lazy var button = UIButton().then {
+    let button = UIButton().then {
         $0.setTitleColor(.black, for: .normal)
         $0.titleLabel?.textAlignment = .left
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
