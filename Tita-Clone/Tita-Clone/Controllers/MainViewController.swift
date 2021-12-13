@@ -17,30 +17,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                           "순두부찌개\n마른새우조림\n느타리버섯호박볶음\n찜닭덮밥\n깍두기\n아이스크림",
                                           "백미밥\n바지락살미역국\n영양갈비찜\n깻잎순나물\n두부쑥갓구이/양념장\n깍두기"]
     
-    private let headLabel = UILabel().then {
-        $0.text = "광주소프트웨어마이스터고"
-        $0.dynamicFont(fontSize: 22, currentFontName: "NotoSans-Bold")
-    }
-    
-    private let headView = UIView().then {
-        $0.backgroundColor = .rgba(red: 167, green: 203, blue: 234, alpha: 1)
 
+    private let topView = MainTopView().then {
+        $0.searchButton.addTarget(self, action: #selector(tapSearchButton(_:)), for: .touchUpInside)
+        $0.myPageButton.addTarget(self, action: #selector(tapMypageButton(_:)), for: .touchUpInside)
     }
     
-    private let searchButton = UIButton().then {
-        $0.setImage(UIImage(named: "Tita-Search"), for: .normal)
-    }
-    
-    private let myPageButton = UIButton().then {
-        $0.setImage(UIImage(named: "Tita-Mypage"), for: .normal)
-    }
-    
-    private let mainNoticeView = NoticeView().then {
+    private let mainNoticeView = MainNoticeView().then {
         $0.dataSetting(Content: "주요 공지글", underscoreColor: .rgba(red: 255, green: 196, blue: 196, alpha: 0.75), Writer: "학생회", Title: "체육대회 공지사항", Text: "체육대회 당일 오후 우천으로 인한 일정 변동이 있습니다. 모든 학생들은 확인해주시기 바랍니다. 또한, 첨부한 사진에 오타가 있습니다. 농구 경기의 경우 60분이니 확인 부탁드립니다.")
         $0.moreBtn.addTarget(self, action: #selector(tapMainMore(_sender:)), for: .touchUpInside)
     }
     
-    private let bestNoticeView = NoticeView().then {
+    private let bestNoticeView = MainNoticeView().then {
         $0.dataSetting(Content: "BEST 게시글", underscoreColor: .rgba(red: 255, green: 253, blue: 196, alpha: 0.75), Writer: "학생회", Title: "체육대회 공지사항", Text: "체육대회 당일 오후 우천으로 인한 일정 변동이 있습니다. 모든 학생들은 확인해주시기 바랍니다. 또한, 첨부한 사진에 오타가 있습니다. 농구 경기의 경우 60분이니 확인 부탁드립니다.")
         $0.moreBtn.addTarget(self, action:#selector(tapBestMore(_sender:)), for: .touchUpInside)
     }
@@ -51,6 +39,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.scrollDirection = .horizontal
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.collectionViewLayout = layout
+        $0.showsHorizontalScrollIndicator = false
     }
     
      
@@ -61,6 +50,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //MARK: - Selectors
+    @objc func tapSearchButton(_ sender: UIButton){
+        print("검색")
+    }
+    
+    @objc func tapMypageButton(_ sender: UIButton) {
+        print("my page")
+    }
     @objc func tapMainMore(_sender: UIButton) {
         print("공지글 더보기")
     }
@@ -80,7 +76,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK: - Add View
     private func addView(){
-        [headLabel, headView, searchButton, myPageButton, mainNoticeView, bestNoticeView, cafeteriaCollectionView].forEach {view.addSubview($0)}
+        [topView, cafeteriaCollectionView, mainNoticeView, bestNoticeView].forEach {view.addSubview($0)}
     }
     
     // MARK: - Corner Radius
@@ -108,50 +104,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.frame.width/1.19, height: view.frame.height)
+        return CGSize(width: view.frame.width/1.19, height: view.frame.height/4.34)
     }
     
 
     
     // MARK: - Location
     private func location(){
-        headLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(self.view.frame.height/14.25)
-            make.left.equalToSuperview().offset(self.view.frame.width/13.89)
-        }
         
-        headView.snp.makeConstraints { make in
+        topView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(203)
-            make.top.equalTo(headLabel.snp.bottom).offset(self.view.frame.height/55.62)
-            make.centerX.equalToSuperview()
-        }
-        
-        searchButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().dividedBy(11.36)
-            make.height.equalToSuperview().dividedBy(21.71)
-            make.centerY.equalTo(headLabel)
-            make.left.equalTo(headLabel.snp.right).offset(self.view.frame.width/37.5)
-        }
-        
-        myPageButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().dividedBy(25)
-            make.height.equalToSuperview().dividedBy(38.67)
-            make.centerY.equalTo(searchButton)
-            make.left.equalTo(searchButton.snp.right).offset(self.view.frame.width/26.79)
-        }
-
-        mainNoticeView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(4.92)
-            make.top.equalToSuperview().offset(self.view.frame.height/2.22)
-            make.centerX.equalToSuperview()
-        }
-        
-        bestNoticeView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(4.92)
-            make.top.equalToSuperview().offset(self.view.frame.height/1.44)
+            make.height.equalToSuperview().dividedBy(7.59)
+            make.top.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         
@@ -160,6 +124,20 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             make.height.equalToSuperview().dividedBy(4.34)
             make.right.equalToSuperview()
             make.top.equalToSuperview().offset(self.view.frame.height/5.56)
+        }
+ 
+        mainNoticeView.snp.makeConstraints { make in
+            make.width.equalToSuperview().dividedBy(1.17)
+            make.height.equalToSuperview().dividedBy(4.92)
+            make.top.equalToSuperview().offset(self.view.frame.height/2.22)
+            make.centerX.equalToSuperview()
+        }
+        
+        bestNoticeView.snp.makeConstraints { make in
+            make.width.equalTo(mainNoticeView)
+            make.height.equalTo(mainNoticeView)
+            make.top.equalTo(mainNoticeView.snp.bottom).offset(self.view.frame.height/24.6)
+            make.centerX.equalToSuperview()
         }
     }
     

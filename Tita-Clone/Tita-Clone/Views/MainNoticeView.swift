@@ -9,17 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-class NoticeView: UIView {
+class MainNoticeView: UIView {
     //MARK: - property
     private let viewBounds = UIScreen.main.bounds
-    
-    private let backView = UIView().then {
-        $0.backgroundColor = .white
-        $0.layer.borderColor = UIColor.rgb(red: 175, green: 175, blue: 175).cgColor
-        $0.layer.cornerRadius = 20
-        $0.layer.borderWidth = 1
-        $0.layer.applySketchShadow(color: .black, alpha: 0.25, x: 4, y: 4, blur: 4, spread: 0)
-    }
+
     
     lazy var noticeContent = UILabel().then {
         $0.dynamicFont(fontSize: 18, currentFontName: "NotoSans-Bold")
@@ -60,20 +53,22 @@ class NoticeView: UIView {
     
     // MARK: - addView
     private func addView() {
-        [backView, underscore, noticeContent, writer, title, text, moreBtn].forEach { addSubview($0) }
+        [underscore, noticeContent, writer, title, text, moreBtn].forEach { addSubview($0) }
     }
         
     // MARK: - location
     private func location() {
-        backView.snp.makeConstraints { make in
-            make.width.equalTo(viewBounds.width/1.17)
-            make.height.equalTo(viewBounds.height/4.92)
-            make.centerX.equalToSuperview()
-        }
         
+        self.backgroundColor = .white
+        self.layer.borderColor = UIColor.rgb(red: 175, green: 175, blue: 175).cgColor
+        self.layer.cornerRadius = viewBounds.width/18.75
+        self.layer.borderWidth = viewBounds.width/375
+        self.layer.applySketchShadow(color: .black, alpha: 0.25, x: 4, y: 4, blur: 4, spread: 0)
+        
+
         noticeContent.snp.makeConstraints { make in
-            make.top.equalTo(backView).offset(viewBounds.height/54.13)
-            make.left.equalTo(backView).offset(viewBounds.width/20.83)
+            make.top.equalTo(viewBounds.height/54.13)
+            make.left.equalTo(viewBounds.width/20.83)
         }
         
         underscore.snp.makeConstraints { make in
@@ -89,13 +84,13 @@ class NoticeView: UIView {
         }
         
         title.snp.makeConstraints { make in
-            make.centerY.equalTo(backView)
+            make.centerY.equalToSuperview()
             make.left.equalTo(writer)
         }
         
         text.snp.makeConstraints { make in
             make.width.equalTo(viewBounds.width/1.3)
-            make.bottom.equalTo(backView).inset(viewBounds.height/49.21)
+            make.bottom.equalToSuperview().inset(viewBounds.height/49.21)
             make.left.equalTo(title)
         }
         
@@ -103,7 +98,7 @@ class NoticeView: UIView {
             make.width.equalTo(viewBounds.width/16.3)
             make.height.equalTo(viewBounds.height/86.11)
             make.bottom.equalTo(text)
-            make.left.equalTo(backView).offset(viewBounds.width/1.95)
+            make.left.equalTo(viewBounds.width/1.95)
         }
     }
     

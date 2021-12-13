@@ -47,18 +47,18 @@ class CafeteriaCollectionViewCell: UICollectionViewCell {
     // MARK: - location
     private func location() {
         
-        self.backgroundColor = .clear
+        self.backgroundColor = .white
         self.layer.borderWidth = viewBounds.width/375
         self.layer.borderColor = UIColor.rgb(red: 173, green: 173, blue: 173).cgColor
-        self.layer.applySketchShadow(x: 2, y: 2, blur: 4)
+        self.layer.applySketchShadow(color: .rgb(red: 173, green: 173, blue: 173), alpha: 1, x: 2, y: 2, blur: 4, spread: 0)
         self.layer.cornerRadius = viewBounds.width/18.75
         
         
         timeImg.snp.makeConstraints { make in
             make.width.equalTo(viewBounds.width/12.5)
             make.height.equalTo(viewBounds.height/21.9)
-            make.top.equalToSuperview().offset(viewBounds.height/40.6)
-            make.left.equalToSuperview().offset(viewBounds.width/7.21)
+            make.top.equalToSuperview().offset(viewBounds.height/101.5)
+            make.left.equalToSuperview().offset(viewBounds.width/8.33)
         }
         
         title.snp.makeConstraints { make in
@@ -67,7 +67,7 @@ class CafeteriaCollectionViewCell: UICollectionViewCell {
         }
         
         menu.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.bottom).offset(viewBounds.height/58)
+            make.top.equalTo(title.snp.bottom).offset(viewBounds.height/116)
             make.centerX.equalToSuperview()
         }
     }
