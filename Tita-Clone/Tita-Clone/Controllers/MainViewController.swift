@@ -79,11 +79,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         [topView, cafeteriaCollectionView, mainNoticeView, bestNoticeView].forEach {view.addSubview($0)}
     }
     
-    // MARK: - Corner Radius
-    private func cornerRadius(){
-        
-    }
-    
+   
     //MARK: - collectionViewSetting
     private func collectionViewSetting() {
         cafeteriaCollectionView.register(CafeteriaCollectionViewCell.self, forCellWithReuseIdentifier:CafeteriaCollectionViewCell.identifier)
