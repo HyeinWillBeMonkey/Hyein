@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import SwiftUI
 
 
 class NoticeTableViewCell: UITableViewCell {
@@ -15,7 +16,26 @@ class NoticeTableViewCell: UITableViewCell {
     static let identifier = "\(NoticeTableViewCell.self)"
     private let viewBounds = UIScreen.main.bounds
     
+    private let writer = UILabel().then {
+        $0.text = "익명"
+        $0.dynamicFont(fontSize: 17, currentFontName: "NotoSans-Bold")
+    }
     
+    private let date = UILabel().then {
+        $0.text = "05/24 14:20"
+        $0.dynamicFont(fontSize: 13, currentFontName: "NotoSans")
+        $0.textColor = .rgb(red: 171, green: 171, blue: 171)
+    }
+    
+    private let title = UILabel().then {
+        $0.text = "이번 한국사 시험 범위 아는 사람!"
+        $0.dynamicFont(fontSize: 16, currentFontName: "NotoSans")
+    }
+    
+    private let text = UILabel().then {
+        $0.text = "급하니까 제대로 아는사람 빨리 알려줘ㅜㅜ"
+        $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
+    }
     //MARK: - lifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,12 +47,30 @@ class NoticeTableViewCell: UITableViewCell {
     
     // MARK: - addView
     private func addView() {
-        [].forEach { self.addSubview($0) }
+        [writer, date, title, text].forEach { self.addSubview($0) }
     }
         
     // MARK: - location
     private func location() {
-
+        writer.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+        
+        date.snp.makeConstraints { make in
+            make.bottom.equalTo(writer)
+            make.left.equalTo(writer.snp.right).offset(viewBounds.width/96.4)
+        }
+        
+        title.snp.makeConstraints { make in
+            make.top.equalTo(date.snp.bottom).offset(viewBounds.height/246)
+            make.left.equalToSuperview()
+        }
+        
+        text.snp.makeConstraints { make in
+            make.top.equalTo(title.snp.bottom).offset(viewBounds.height/116)
+            make.left.equalToSuperview()
+        }
     }
     
     // MARK: - dataSetting
