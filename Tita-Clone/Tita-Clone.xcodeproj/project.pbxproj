@@ -18,6 +18,8 @@
 		C03F740927676293006E0C00 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F740827676293006E0C00 /* MainTopView.swift */; };
 		C03F740B27688A85006E0C00 /* NoticeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F740A27688A85006E0C00 /* NoticeTopView.swift */; };
 		C03F740F2769BE09006E0C00 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F740E2769BE09006E0C00 /* NoticeTableViewCell.swift */; };
+		C03F7411276E2273006E0C00 /* HeartBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F7410276E2273006E0C00 /* HeartBoxView.swift */; };
+		C03F7413276E2336006E0C00 /* ContentCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F7412276E2336006E0C00 /* ContentCheckView.swift */; };
 		C06F3293275F52AF00F4A97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F3292275F52AF00F4A97E /* AppDelegate.swift */; };
 		C06F3295275F52AF00F4A97E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06F3294275F52AF00F4A97E /* SceneDelegate.swift */; };
 		C06F329C275F52B000F4A97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C06F329B275F52B000F4A97E /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		C03F740827676293006E0C00 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		C03F740A27688A85006E0C00 /* NoticeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTopView.swift; sourceTree = "<group>"; };
 		C03F740E2769BE09006E0C00 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		C03F7410276E2273006E0C00 /* HeartBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBoxView.swift; sourceTree = "<group>"; };
+		C03F7412276E2336006E0C00 /* ContentCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCheckView.swift; sourceTree = "<group>"; };
 		C06F328F275F52AF00F4A97E /* Tita-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tita-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06F3292275F52AF00F4A97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C06F3294275F52AF00F4A97E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			children = (
 				C03F740527650860006E0C00 /* Cells */,
 				C0FD07302760354300F59570 /* TextFieldView.swift */,
+				C03F7410276E2273006E0C00 /* HeartBoxView.swift */,
+				C03F7412276E2336006E0C00 /* ContentCheckView.swift */,
 				C03F740827676293006E0C00 /* MainTopView.swift */,
 				C03F73F9276488BC006E0C00 /* MainNoticeView.swift */,
 				C03F740A27688A85006E0C00 /* NoticeTopView.swift */,
@@ -315,12 +321,14 @@
 				C03F740927676293006E0C00 /* MainTopView.swift in Sources */,
 				C06F32B0275F578C00F4A97E /* LoginViewController.swift in Sources */,
 				C06F3293275F52AF00F4A97E /* AppDelegate.swift in Sources */,
+				C03F7411276E2273006E0C00 /* HeartBoxView.swift in Sources */,
 				C06F3295275F52AF00F4A97E /* SceneDelegate.swift in Sources */,
 				C03F74072765089A006E0C00 /* CafeteriaCollectionViewCell.swift in Sources */,
 				C03F73FC2764F226006E0C00 /* TabBarViewController.swift in Sources */,
 				C03F740F2769BE09006E0C00 /* NoticeTableViewCell.swift in Sources */,
 				C03F740B27688A85006E0C00 /* NoticeTopView.swift in Sources */,
 				C03F73EE2762CAD4006E0C00 /* MainViewController.swift in Sources */,
+				C03F7413276E2336006E0C00 /* ContentCheckView.swift in Sources */,
 				C0FD07312760354300F59570 /* TextFieldView.swift in Sources */,
 				C03F740027650579006E0C00 /* NoticeViewController.swift in Sources */,
 				C06F32B7275F58DA00F4A97E /* Extension.swift in Sources */,

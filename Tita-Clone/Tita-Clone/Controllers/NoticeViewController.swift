@@ -13,8 +13,13 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
 
     //MARK: - Properties
     
-    private let topView = NoticeTopView()
-    private let noticeTableView = UITableView()
+    private let topView = NoticeTopView().then {
+        $0.prevButton.addTarget(self, action: #selector(tapPrevBtn(_:)), for: .touchUpInside)
+    }
+    private let noticeTableView = UITableView().then {
+        $0.separatorStyle = .singleLine
+    }
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,6 +28,9 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     
     //MARK: - Selectors
+    @objc func tapPrevBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - Helpers
     private func configureUI(){
@@ -30,6 +38,7 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
         addView()
         cornerRadius()
         location()
+        tableViewSetting()
     }
     
     // MARK: - Add View
@@ -43,13 +52,22 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeTableViewCell") as! NoticeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewCell.identifier) as! NoticeTableViewCell
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height/8.46
+        return self.view.frame.height/7.66
+
+    }
+    
+    //MARK: - tableView Setting
+    private func tableViewSetting(){
+        noticeTableView.dataSource = self
+        noticeTableView.delegate = self
+        
+        noticeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: NoticeTableViewCell.identifier)
     }
     
     // MARK: - Corner Radius
@@ -67,9 +85,9 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
         }
         
         noticeTableView.snp.makeConstraints { make in
-            make.width.equalToSuperview().dividedBy(self.view.frame.width/1.32)
-            make.height.equalToSuperview().dividedBy(1.31)
-            make.top.equalTo(topView.snp.bottom)
+            make.width.equalToSuperview().dividedBy(1.32)
+            make.height.equalToSuperview().dividedBy(1.26)
+            make.top.equalTo(topView.snp.bottom).offset(self.view.frame.height/38.1)
             make.centerX.equalToSuperview()
         }
     }

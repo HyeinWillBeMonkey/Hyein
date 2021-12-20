@@ -36,9 +36,17 @@ class NoticeTableViewCell: UITableViewCell {
         $0.text = "급하니까 제대로 아는사람 빨리 알려줘ㅜㅜ"
         $0.dynamicFont(fontSize: 12, currentFontName: "NotoSans")
     }
+
+    private let heartBox = HeartBoxView()
+    
+    private let contentCheck = ContentCheckView()
+    
     //MARK: - lifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addView()
+        location()
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +55,7 @@ class NoticeTableViewCell: UITableViewCell {
     
     // MARK: - addView
     private func addView() {
-        [writer, date, title, text].forEach { self.addSubview($0) }
+        [writer, date, title, text, heartBox, contentCheck].forEach { self.addSubview($0) }
     }
         
     // MARK: - location
@@ -63,7 +71,7 @@ class NoticeTableViewCell: UITableViewCell {
         }
         
         title.snp.makeConstraints { make in
-            make.top.equalTo(date.snp.bottom).offset(viewBounds.height/246)
+            make.top.equalTo(date.snp.bottom).offset(viewBounds.height/246.1)
             make.left.equalToSuperview()
         }
         
@@ -71,10 +79,21 @@ class NoticeTableViewCell: UITableViewCell {
             make.top.equalTo(title.snp.bottom).offset(viewBounds.height/116)
             make.left.equalToSuperview()
         }
+        
+        heartBox.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview().inset(viewBounds.width/125)
+            make.width.equalTo(viewBounds.width/8.33)
+            make.height.equalTo(viewBounds.height/50.75)
+        }
+        
+        contentCheck.snp.makeConstraints { make in
+            make.top.equalTo(text.snp.bottom).offset(viewBounds.height/203)
+            make.left.equalToSuperview()
+            make.width.equalTo(viewBounds.width/5.59)
+            make.height.equalTo(viewBounds.height/54.13)
+        }
+        
     }
-    
-    // MARK: - dataSetting
-    func dataSetting() {
-       
-    }
+
 }
