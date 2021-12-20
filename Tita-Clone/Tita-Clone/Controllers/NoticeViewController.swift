@@ -9,12 +9,20 @@ import UIKit
 import SnapKit
 import Then
 
-class NoticeViewController: UIViewController {
+class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+
     //MARK: - Properties
     
-    let notice = UILabel().then {
-        $0.text = "NOTICE"
+    private let topView = NoticeTopView().then {
+        $0.prevButton.addTarget(self, action: #selector(tapPrevBtn(_:)), for: .touchUpInside)
     }
+    private let noticeTableView = UITableView().then {
+        $0.separatorStyle = .singleLine
+        $0.separatorInset.left = 0
+        $0.separatorInset.right = 0
+    }
+    
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +30,9 @@ class NoticeViewController: UIViewController {
     }
     
     //MARK: - Selectors
+    @objc func tapPrevBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - Helpers
     private func configureUI(){
@@ -29,11 +40,38 @@ class NoticeViewController: UIViewController {
         addView()
         cornerRadius()
         location()
+        tableViewSetting()
     }
     
     // MARK: - Add View
     private func addView(){
-        view.addSubview(notice)
+        [topView, noticeTableView].forEach { view.addSubview($0) }
+    }
+    
+    //MARK: - TableViewSetting
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewCell.identifier) as! NoticeTableViewCell
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.view.frame.height/7.09
+        
+
+    }
+    
+    //MARK: - tableView Setting
+    private func tableViewSetting(){
+        noticeTableView.dataSource = self
+        noticeTableView.delegate = self
+        
+        noticeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: NoticeTableViewCell.identifier)
     }
     
     // MARK: - Corner Radius
@@ -43,8 +81,18 @@ class NoticeViewController: UIViewController {
     
     // MARK: - Location
     private func location(){
-        notice.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        topView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(7.59)
+        }
+        
+        noticeTableView.snp.makeConstraints { make in
+            make.width.equalToSuperview().dividedBy(1.32)
+            make.height.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom).offset(self.view.frame.height/38.1)
+            make.centerX.equalToSuperview()
         }
     }
     
