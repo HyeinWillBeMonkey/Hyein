@@ -53,9 +53,14 @@ class NoticeTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: viewBounds.height/81.2, left: viewBounds.width/812, bottom: viewBounds.height/81.2, right: viewBounds.width/28.85))
+    }
+    
     // MARK: - addView
     private func addView() {
-        [writer, date, title, text, heartBox, contentCheck].forEach { self.addSubview($0) }
+        [writer, date, title, text, heartBox, contentCheck].forEach { contentView.addSubview($0) }
     }
         
     // MARK: - location
@@ -81,7 +86,7 @@ class NoticeTableViewCell: UITableViewCell {
         }
         
         heartBox.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(writer)
             make.right.equalToSuperview().inset(viewBounds.width/125)
             make.width.equalTo(viewBounds.width/8.33)
             make.height.equalTo(viewBounds.height/50.75)

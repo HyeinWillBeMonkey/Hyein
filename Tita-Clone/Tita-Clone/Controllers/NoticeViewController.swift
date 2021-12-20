@@ -18,6 +18,8 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     private let noticeTableView = UITableView().then {
         $0.separatorStyle = .singleLine
+        $0.separatorInset.left = 0
+        $0.separatorInset.right = 0
     }
     
     
@@ -54,11 +56,13 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewCell.identifier) as! NoticeTableViewCell
         
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height/7.66
+        return self.view.frame.height/7.09
+        
 
     }
     
@@ -86,7 +90,7 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
         
         noticeTableView.snp.makeConstraints { make in
             make.width.equalToSuperview().dividedBy(1.32)
-            make.height.equalToSuperview().dividedBy(1.26)
+            make.height.equalToSuperview()
             make.top.equalTo(topView.snp.bottom).offset(self.view.frame.height/38.1)
             make.centerX.equalToSuperview()
         }
