@@ -127,7 +127,7 @@
 				C06F32B4275F584E00F4A97E /* Resources */,
 				C06F32B3275F583200F4A97E /* Controllers */,
 				C06F32B2275F582400F4A97E /* Views */,
-				C06F32B1275F581B00F4A97E /* Medels */,
+				C06F32B1275F581B00F4A97E /* Models */,
 				C06F32A6275F546500F4A97E /* Fonts */,
 				C06F329B275F52B000F4A97E /* Assets.xcassets */,
 				C06F32A0275F52B000F4A97E /* Info.plist */,
@@ -146,11 +146,11 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		C06F32B1275F581B00F4A97E /* Medels */ = {
+		C06F32B1275F581B00F4A97E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Medels;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C06F32B2275F582400F4A97E /* Views */ = {

@@ -38,7 +38,6 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
     private func configureUI(){
         view.backgroundColor = .white
         addView()
-        cornerRadius()
         location()
         tableViewSetting()
     }
@@ -72,11 +71,6 @@ class NoticeViewController: UIViewController , UITableViewDelegate, UITableViewD
         noticeTableView.delegate = self
         
         noticeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: NoticeTableViewCell.identifier)
-    }
-    
-    // MARK: - Corner Radius
-    private func cornerRadius(){
-        
     }
     
     // MARK: - Location
